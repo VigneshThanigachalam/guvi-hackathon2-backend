@@ -34,7 +34,6 @@ var userSchema = new mongoose.Schema(
         rented: {
             type: Array,
             default: [],
-            unique: true
         },
         address:{
             flat:{
