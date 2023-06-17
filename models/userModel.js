@@ -30,7 +30,6 @@ var userSchema = new mongoose.Schema(
         cart: {
             type: Array,
             default: [],
-            unique: true
         },
         rented: {
             type: Array,
