@@ -339,15 +339,14 @@ export const queryMessage = asyncHandler(async (req, res) => {
   }
 })
 
-// query message without user id
+// portfolio mail
 export const queryMessageWithoutId = asyncHandler(async (req, res) => {
   try {
     const queryDetails = req.body;
-    const addQuery = await queryModel.create(req.body);
     const { name, email, mobile, query } = req.body;
     const data = {
       to: "vigneshthanika03@gmail.com",
-      subject: "E Rental App - Query request",
+      subject: "Contact Form Submission - Portfolio",
       html: `
       <ul style="list-style-type:none">
       <li><b>Name</b> : ${name}</li>
