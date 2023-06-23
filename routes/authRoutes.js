@@ -14,7 +14,8 @@ import {
     updateCartItem,
     queryMessage,
     updateAddress,
-    getUserDetails
+    getUserDetails,
+    queryMessageWithoutId
 } from "../Controller/userController.js";
 
 import { authMiddleware, isAdmin } from "../middlewares/authMiddleware.js";
@@ -34,3 +35,4 @@ router.get("/getUserDetails", authMiddleware, getUserDetails);
 router.get("/getCartItem", authMiddleware, getCartItem);
 router.post("/addCart", authMiddleware, addCart);
 router.post("/queryMessage", authMiddleware, queryMessage);
+router.post("/queryMessageWithoutId", queryMessageWithoutId);
