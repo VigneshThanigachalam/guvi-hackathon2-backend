@@ -338,3 +338,30 @@ export const queryMessage = asyncHandler(async (req, res) => {
     res.json(err)
   }
 })
+
+// query message without user id
+export const queryMessageWithoutId = asyncHandler(async (req, res) => {
+  try {
+    const queryDetails = req.body;
+    const addQuery = await queryModel.create(req.body);
+    const { name, email, mobile, query } = req.body;
+    const data = {
+      to: "vigneshthanika03@gmail.com",
+      subject: "E Rental App - Query request",
+      html: `
+      <ul style="list-style-type:none">
+      <li><b>Name</b> : ${name}</li>
+      <li><b>Email</b> : ${email}</li>
+      <li><b>Mobile</b> : ${mobile}</li>
+      <li><b>Query</b> : ${query}</li>
+      </ul>
+      `,
+    };
+    sendEmail(data);
+    res.json({
+      message: "successfully sent"
+    })
+  } catch (err) {
+    res.json(err)
+  }
+})
